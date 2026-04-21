@@ -1,35 +1,471 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Your New Business" description="Deseo sacar Una linea de maquillaje con el logo de Saturno">
-  <!-- Hero — the Product Agent will replace this entire page -->
-  <section class="relative min-h-[80vh] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-surface-50 to-brand-500/10"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-surface-900 font-display max-w-4xl mx-auto leading-[1.1] animate-slide-up">
-        Your New Business
-      </h1>
-      <p class="mt-6 text-lg md:text-xl text-surface-800/60 max-w-2xl mx-auto leading-relaxed animate-slide-up delay-100">
-        Deseo sacar Una linea de maquillaje con el logo de Saturno
+<Base
+  title="Satúrnia — Maquillaje Cósmico Premium"
+  description="La primera línea de maquillaje inspirada en los anillos de Saturno. Cruelty-free, para mujeres que brillan diferente."
+>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       HERO — Inmersión cósmica total
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="relative min-h-screen flex items-center overflow-hidden grain-overlay" style="background-color: oklch(0.08 0.015 265);">
+
+    <!-- Layered gradient background — cosmic lighting -->
+    <div class="absolute inset-0" style="
+      background:
+        radial-gradient(ellipse 90% 70% at 15% 20%, oklch(0.72 0.10 82 / 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 85% 80%, oklch(0.20 0.04 275 / 0.40) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 70% 15%, oklch(0.55 0.06 290 / 0.15) 0%, transparent 50%),
+        linear-gradient(175deg, oklch(0.10 0.022 272) 0%, oklch(0.07 0.012 265) 60%, oklch(0.09 0.018 268) 100%);
+    "></div>
+
+    <!-- Star dots pattern -->
+    <div class="absolute inset-0" style="
+      background-image:
+        radial-gradient(circle at 1px 1px, oklch(0.90 0.04 82 / 0.22) 1px, transparent 0),
+        radial-gradient(circle at 1px 1px, oklch(0.96 0.02 80 / 0.10) 1px, transparent 0);
+      background-size: 60px 60px, 28px 28px;
+      background-position: 0 0, 14px 14px;
+      mask-image: radial-gradient(ellipse 80% 90% at 50% 40%, black 20%, transparent 85%);
+    "></div>
+
+    <!-- Saturn ring SVG — large decorative element, absolutely placed -->
+    <div class="absolute right-[-8vw] top-1/2 -translate-y-1/2 opacity-20 pointer-events-none" style="width: clamp(340px, 48vw, 680px);">
+      <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <!-- Planet body -->
+        <circle cx="300" cy="300" r="140" fill="oklch(0.12 0.025 272)" stroke="oklch(0.72 0.10 82)" stroke-width="1.5" opacity="0.8"/>
+        <circle cx="300" cy="300" r="140" fill="url(#planetGrad)" opacity="0.6"/>
+        <!-- Main ring ellipse -->
+        <ellipse cx="300" cy="300" rx="260" ry="70" stroke="oklch(0.72 0.10 82)" stroke-width="18" fill="none" opacity="0.55"/>
+        <ellipse cx="300" cy="300" rx="218" ry="56" stroke="oklch(0.86 0.07 82)" stroke-width="6" fill="none" opacity="0.35"/>
+        <ellipse cx="300" cy="300" rx="248" ry="66" stroke="oklch(0.90 0.08 82)" stroke-width="2" fill="none" opacity="0.25"/>
+        <defs>
+          <radialGradient id="planetGrad" cx="40%" cy="35%" r="60%">
+            <stop offset="0%" stop-color="oklch(0.20 0.04 275)" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="oklch(0.08 0.015 265)" stop-opacity="1"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-32 md:py-40">
+      <div class="max-w-3xl">
+
+        <!-- Eyebrow -->
+        <p class="animate-fade-in text-brand-500 font-body font-400 tracking-[0.22em] uppercase text-xs mb-7" style="letter-spacing:0.22em;">
+          ✦ &nbsp;Nueva colección — Anillos de Saturno
+        </p>
+
+        <!-- Main headline -->
+        <h1 class="animate-slide-up font-display leading-[1.08] mb-8" style="font-size: clamp(2.8rem, 6vw, 5.2rem); color: oklch(0.95 0.006 80);">
+          El maquillaje que<br/>
+          <em class="text-gold-shimmer not-italic">orbita tu singularidad</em><br/>
+          cósmica
+        </h1>
+
+        <!-- Sub -->
+        <p class="animate-slide-up delay-200 font-body font-300 text-lg md:text-xl leading-relaxed mb-12 max-w-xl" style="color: oklch(0.72 0.015 80);">
+          Colecciones inspiradas en los anillos de Saturno —<br class="hidden md:block"/>
+          cruelty-free, para quienes brillan diferente.
+        </p>
+
+        <!-- CTAs -->
+        <div class="animate-slide-up delay-300 flex flex-wrap gap-4 items-center">
+          <a href="#coleccion" class="btn-gold">Explorar colección</a>
+          <a href="#historia" class="btn-outline-gold">Nuestra historia</a>
+        </div>
+
+        <!-- Micro proof -->
+        <p class="animate-fade-in delay-500 mt-10 text-xs font-body font-300 tracking-widest uppercase" style="color: oklch(0.55 0.015 80); letter-spacing: 0.18em;">
+          Cruelty-free &nbsp;·&nbsp; Sin parabenos &nbsp;·&nbsp; Pigmentos de alta moda
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style="background: linear-gradient(to bottom, transparent, oklch(0.08 0.015 265));"></div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       ORIGIN STORY — El universo que te dio forma
+       ═══════════════════════════════════════════════════════════════ -->
+  <section id="historia" class="relative py-28 md:py-40 overflow-hidden" style="background: oklch(0.08 0.015 265);">
+
+    <!-- Subtle ambient glow -->
+    <div class="absolute inset-0 pointer-events-none" style="
+      background: radial-gradient(ellipse 55% 60% at 90% 50%, oklch(0.20 0.04 275 / 0.22) 0%, transparent 65%);
+    "></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
+      <!-- Ring divider top -->
+      <div class="ring-divider mb-20"></div>
+
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+        <!-- Left: Story text -->
+        <div>
+          <p class="text-brand-500 font-body font-400 tracking-[0.20em] uppercase text-xs mb-6">✦ &nbsp;Nuestra historia</p>
+          <h2 class="font-display mb-8 leading-tight" style="font-size: clamp(2rem, 4vw, 3.4rem); color: oklch(0.95 0.006 80);">
+            Nacimos del espacio<br/>
+            <em class="not-italic" style="color: oklch(0.78 0.09 82);">donde todo comienza.</em>
+          </h2>
+          <div class="space-y-5 font-body font-300 text-base md:text-lg leading-relaxed" style="color: oklch(0.68 0.012 80);">
+            <p>
+              Saturno lleva miles de millones de años cincelando sus anillos — capas de hielo y roca que forman el espectáculo más hermoso del sistema solar. <em class="not-italic" style="color: oklch(0.85 0.008 80);">Satúrnia nació de esa misma obsesión por los detalles.</em>
+            </p>
+            <p>
+              Somos la primera línea de cosmética construida completamente alrededor de la iconografía del cosmos: cada paleta es un planeta, cada tono un anillo, cada acabado un fenómeno celeste.
+            </p>
+            <p>
+              Para la mujer que ve la belleza como extensión de su identidad — no como una máscara, sino como un universo que lleva dentro.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Pull quote + planet detail -->
+        <div class="relative">
+          <!-- Decorative Saturn mini -->
+          <div class="absolute -top-8 -right-4 opacity-15 pointer-events-none" style="width: 220px;">
+            <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+              <circle cx="150" cy="150" r="75" fill="oklch(0.14 0.025 272)" stroke="oklch(0.72 0.10 82)" stroke-width="1"/>
+              <ellipse cx="150" cy="150" rx="138" ry="38" stroke="oklch(0.72 0.10 82)" stroke-width="10" fill="none"/>
+              <ellipse cx="150" cy="150" rx="115" ry="30" stroke="oklch(0.86 0.07 82)" stroke-width="3" fill="none"/>
+            </svg>
+          </div>
+
+          <!-- Quote block -->
+          <blockquote class="card-cosmic rounded-sm p-10 md:p-12 relative">
+            <p class="font-display italic leading-snug mb-6" style="font-size: clamp(1.5rem, 3vw, 2.2rem); color: oklch(0.90 0.006 80);">
+              "La belleza no imita al universo — <em class="not-italic text-gold-shimmer">es</em> el universo."
+            </p>
+            <footer class="font-body font-300 text-sm tracking-widest uppercase" style="color: oklch(0.60 0.015 80); letter-spacing: 0.16em;">
+              — Filosofía Satúrnia
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Ring divider bottom -->
+      <div class="ring-divider mt-20"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FEATURED COLLECTION — Anillos de Saturno
+       ═══════════════════════════════════════════════════════════════ -->
+  <section id="coleccion" class="relative py-28 md:py-36 overflow-hidden" style="background: oklch(0.09 0.018 268);">
+
+    <!-- Background glow -->
+    <div class="absolute inset-0 pointer-events-none" style="
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 60%, oklch(0.72 0.10 82 / 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 40% at 80% 20%, oklch(0.20 0.04 275 / 0.20) 0%, transparent 55%);
+    "></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <!-- Header -->
+      <div class="text-center mb-20">
+        <p class="text-brand-500 font-body font-400 tracking-[0.20em] uppercase text-xs mb-5">✦ &nbsp;Colección estelar</p>
+        <h2 class="font-display leading-tight" style="font-size: clamp(2rem, 4.5vw, 3.6rem); color: oklch(0.95 0.006 80);">
+          Forjada en los anillos de Saturno
+        </h2>
+        <p class="mt-5 font-body font-300 text-base md:text-lg max-w-xl mx-auto" style="color: oklch(0.65 0.012 80);">
+          Cada pieza narra un fenómeno cósmico. Cada pigmento, una partícula del universo.
+        </p>
+      </div>
+
+      <!-- Product cards grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Card 1 -->
+        <article class="card-cosmic rounded-sm overflow-hidden group">
+          <!-- Visual placeholder — cosmic gradient as product swatch -->
+          <div class="h-56 relative overflow-hidden" style="
+            background:
+              radial-gradient(ellipse 80% 70% at 30% 40%, oklch(0.72 0.10 82 / 0.60) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 60% at 70% 70%, oklch(0.30 0.06 290 / 0.50) 0%, transparent 55%),
+              linear-gradient(160deg, oklch(0.14 0.025 272), oklch(0.10 0.018 268));
+          ">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="90" height="90" style="opacity:0.75;">
+                <circle cx="60" cy="60" r="30" fill="oklch(0.12 0.025 272)" stroke="oklch(0.72 0.10 82)" stroke-width="1"/>
+                <ellipse cx="60" cy="60" rx="56" ry="16" stroke="oklch(0.86 0.07 82)" stroke-width="5" fill="none"/>
+                <ellipse cx="60" cy="60" rx="46" ry="12" stroke="oklch(0.72 0.10 82)" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-16" style="background: linear-gradient(to top, oklch(0.12 0.025 272 / 0.90), transparent);"></div>
+          </div>
+          <div class="p-7">
+            <p class="font-body text-xs tracking-widest uppercase mb-2" style="color: oklch(0.60 0.010 82); letter-spacing:0.18em;">Paleta de ojos</p>
+            <h3 class="font-display text-xl mb-2" style="color: oklch(0.92 0.006 80);">Anillo Cassini</h3>
+            <p class="font-body font-300 text-sm leading-relaxed mb-5" style="color: oklch(0.62 0.010 80);">
+              12 sombras ultracrema que van del polvo de estrellas dorado al carbón de cometa. Acabados mate, satinado y destellante.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="font-body font-500 text-base" style="color: oklch(0.78 0.09 82);">$42 USD</span>
+              <a href="#cta" class="btn-gold text-xs" style="padding: 0.55rem 1.3rem;">Ver más</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card-cosmic rounded-sm overflow-hidden group">
+          <div class="h-56 relative overflow-hidden" style="
+            background:
+              radial-gradient(ellipse 70% 80% at 60% 30%, oklch(0.55 0.08 310 / 0.45) 0%, transparent 55%),
+              radial-gradient(ellipse 60% 50% at 20% 70%, oklch(0.72 0.10 82 / 0.35) 0%, transparent 55%),
+              linear-gradient(145deg, oklch(0.11 0.022 278), oklch(0.09 0.018 268));
+          ">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="opacity:0.70;">
+                <circle cx="60" cy="60" r="26" fill="oklch(0.14 0.025 280)"/>
+                <circle cx="60" cy="60" r="26" stroke="oklch(0.72 0.10 82)" stroke-width="1.5" fill="none"/>
+                <circle cx="60" cy="60" r="8" fill="oklch(0.72 0.10 82)" opacity="0.6"/>
+                <ellipse cx="60" cy="60" rx="50" ry="14" stroke="oklch(0.86 0.07 82)" stroke-width="4" fill="none"/>
+              </svg>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-16" style="background: linear-gradient(to top, oklch(0.12 0.025 272 / 0.90), transparent);"></div>
+          </div>
+          <div class="p-7">
+            <p class="font-body text-xs tracking-widest uppercase mb-2" style="color: oklch(0.60 0.010 82); letter-spacing:0.18em;">Labios</p>
+            <h3 class="font-display text-xl mb-2" style="color: oklch(0.92 0.006 80);">Lunar Matte</h3>
+            <p class="font-body font-300 text-sm leading-relaxed mb-5" style="color: oklch(0.62 0.010 80);">
+              Labiales de larga duración con fórmula hidratante. 8 tonos que van del vino nebulosa al nude asteroide.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="font-body font-500 text-base" style="color: oklch(0.78 0.09 82);">$28 USD</span>
+              <a href="#cta" class="btn-gold text-xs" style="padding: 0.55rem 1.3rem;">Ver más</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card-cosmic rounded-sm overflow-hidden group sm:col-span-2 lg:col-span-1">
+          <div class="h-56 relative overflow-hidden" style="
+            background:
+              radial-gradient(ellipse 80% 60% at 50% 20%, oklch(0.78 0.09 82 / 0.40) 0%, transparent 55%),
+              radial-gradient(ellipse 50% 60% at 10% 80%, oklch(0.18 0.040 285 / 0.50) 0%, transparent 55%),
+              linear-gradient(170deg, oklch(0.10 0.020 270), oklch(0.08 0.015 265));
+          ">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="86" height="86" style="opacity:0.72;">
+                <circle cx="60" cy="60" r="32" fill="oklch(0.10 0.020 270)"/>
+                <circle cx="60" cy="60" r="32" stroke="oklch(0.72 0.10 82)" stroke-width="1.5" fill="none"/>
+                <ellipse cx="60" cy="60" rx="54" ry="15" stroke="oklch(0.86 0.07 82)" stroke-width="6" fill="none"/>
+                <ellipse cx="60" cy="60" rx="45" ry="11" stroke="oklch(0.72 0.10 82)" stroke-width="2" fill="none"/>
+                <ellipse cx="60" cy="60" rx="58" ry="18" stroke="oklch(0.90 0.08 82)" stroke-width="1" fill="none" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-16" style="background: linear-gradient(to top, oklch(0.12 0.025 272 / 0.90), transparent);"></div>
+          </div>
+          <div class="p-7">
+            <p class="font-body text-xs tracking-widest uppercase mb-2" style="color: oklch(0.60 0.010 82); letter-spacing:0.18em;">Highlighter</p>
+            <h3 class="font-display text-xl mb-2" style="color: oklch(0.92 0.006 80);">Polvo de Titan</h3>
+            <p class="font-body font-300 text-sm leading-relaxed mb-5" style="color: oklch(0.62 0.010 80);">
+              Iluminador prensado con partículas doradas de fina micronización. Destello orbital que dura todo el día.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="font-body font-500 text-base" style="color: oklch(0.78 0.09 82);">$35 USD</span>
+              <a href="#cta" class="btn-gold text-xs" style="padding: 0.55rem 1.3rem;">Ver más</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Price range note -->
+      <p class="text-center mt-12 font-body font-300 text-sm" style="color: oklch(0.52 0.010 80);">
+        Toda la línea: $25–$55 USD &nbsp;·&nbsp; Envío a México, EE.UU., Colombia, Argentina y España
       </p>
-      <div class="mt-10 animate-slide-up delay-200">
-        <a href="#cta" class="inline-block px-8 py-3.5 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 transition-colors text-base">
-          Get Started
-        </a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       VALUES / PRINCIPLES — Tres pilares de Satúrnia
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="relative py-28 md:py-36 overflow-hidden" style="background: oklch(0.08 0.015 265);">
+
+    <!-- Ring divider -->
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 mb-20">
+      <div class="ring-divider"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="text-center mb-18">
+        <p class="text-brand-500 font-body font-400 tracking-[0.20em] uppercase text-xs mb-5">✦ &nbsp;Nuestros principios</p>
+        <h2 class="font-display leading-tight" style="font-size: clamp(2rem, 4vw, 3.2rem); color: oklch(0.95 0.006 80);">
+          El cosmos tiene sus leyes.<br/>
+          <em class="not-italic text-gold-shimmer">Nosotras también.</em>
+        </h2>
+      </div>
+
+      <!-- Values — asymmetric layout, left-staggered -->
+      <div class="grid md:grid-cols-3 gap-10 lg:gap-16 mt-16">
+
+        <!-- Value 1 -->
+        <div class="relative pl-8 border-l" style="border-color: oklch(0.72 0.10 82 / 0.28);">
+          <div class="mb-5">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="7" stroke="oklch(0.72 0.10 82)" stroke-width="1.5"/>
+              <ellipse cx="16" cy="16" rx="15" ry="5" stroke="oklch(0.72 0.10 82)" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl mb-4" style="color: oklch(0.90 0.006 80);">Crueldad cero, siempre</h3>
+          <p class="font-body font-300 text-base leading-relaxed" style="color: oklch(0.62 0.010 80);">
+            Ningún producto Satúrnia se prueba en animales. Fórmulas veganas en el 90% de la línea. El lujo no exige sacrificio ajeno.
+          </p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="relative pl-8 border-l md:mt-10" style="border-color: oklch(0.72 0.10 82 / 0.28);">
+          <div class="mb-5">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="16,2 20,12 31,12 22,19 25,30 16,23 7,30 10,19 1,12 12,12" stroke="oklch(0.72 0.10 82)" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl mb-4" style="color: oklch(0.90 0.006 80);">Pigmento editorial</h3>
+          <p class="font-body font-300 text-base leading-relaxed" style="color: oklch(0.62 0.010 80);">
+            Pigmentos de alta concentración usados en fashion week. Un solo trazo equivale a tres capas de marcas convencionales.
+          </p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="relative pl-8 border-l md:mt-20" style="border-color: oklch(0.72 0.10 82 / 0.28);">
+          <div class="mb-5">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 2 C8 8, 2 16, 16 30 C30 16, 24 8, 16 2Z" stroke="oklch(0.72 0.10 82)" stroke-width="1.5" fill="none"/>
+              <circle cx="16" cy="16" r="3" fill="oklch(0.72 0.10 82)" opacity="0.7"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl mb-4" style="color: oklch(0.90 0.006 80);">Accesible sin compromiso</h3>
+          <p class="font-body font-300 text-base leading-relaxed" style="color: oklch(0.62 0.010 80);">
+            Precios de $25–$55 USD. La calidad de una casa editorial, el precio de tu colección personal. El cosmos es para todas.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ring divider bottom -->
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 mt-20">
+      <div class="ring-divider"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       TESTIMONIAL — Una sola voz, poderosa
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="relative py-24 md:py-32 overflow-hidden" style="background: oklch(0.09 0.018 268);">
+
+    <div class="absolute inset-0 pointer-events-none" style="
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, oklch(0.72 0.10 82 / 0.06) 0%, transparent 65%);
+    "></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 sm:px-10 lg:px-16 text-center">
+      <!-- Stars -->
+      <div class="flex justify-center gap-1 mb-10">
+        <span style="color: oklch(0.72 0.10 82); font-size: 1.1rem;">★★★★★</span>
+      </div>
+      <blockquote>
+        <p class="font-display italic leading-tight mb-8" style="font-size: clamp(1.8rem, 4vw, 3rem); color: oklch(0.93 0.006 80);">
+          "Por fin una marca que no me hace elegir entre calidad y significado. La paleta Cassini es literalmente un portal galáctico en mis manos."
+        </p>
+        <footer class="font-body font-300 text-sm tracking-widest uppercase" style="color: oklch(0.60 0.015 80); letter-spacing: 0.18em;">
+          — Valentina M., Ciudad de México
+        </footer>
+      </blockquote>
+
+      <!-- Decorative accent rings -->
+      <div class="mt-14 flex justify-center items-center gap-4" style="color: oklch(0.72 0.10 82 / 0.35);">
+        <div style="width: 60px; height: 1px; background: oklch(0.72 0.10 82 / 0.30);"></div>
+        <span style="font-size: 1.2rem; color: oklch(0.72 0.10 82 / 0.50);">◎</span>
+        <div style="width: 60px; height: 1px; background: oklch(0.72 0.10 82 / 0.30);"></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="cta" class="py-20 md:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-2xl bg-brand-500 p-10 md:p-16 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white font-display">Ready to get started?</h2>
-        <p class="mt-4 text-lg text-white/80 max-w-xl mx-auto">Get in touch and see what we can do for you.</p>
-        <a href="mailto:hello@example.com" class="mt-8 inline-block px-8 py-3.5 bg-white text-surface-900 font-semibold rounded-lg hover:bg-surface-100 transition-colors text-base">
-          Contact Us
-        </a>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FINAL CTA — Únete al cosmos
+       ═══════════════════════════════════════════════════════════════ -->
+  <section id="cta" class="relative py-32 md:py-44 overflow-hidden grain-overlay" style="background: oklch(0.08 0.015 265);">
+
+    <!-- Atmospheric glow -->
+    <div class="absolute inset-0 pointer-events-none" style="
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, oklch(0.72 0.10 82 / 0.13) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 30% at 20% 80%, oklch(0.20 0.04 275 / 0.25) 0%, transparent 55%),
+        radial-gradient(ellipse 30% 30% at 80% 15%, oklch(0.20 0.04 280 / 0.20) 0%, transparent 50%);
+    "></div>
+
+    <!-- Star dots -->
+    <div class="absolute inset-0 pointer-events-none" style="
+      background-image: radial-gradient(circle at 1px 1px, oklch(0.90 0.04 82 / 0.14) 1px, transparent 0);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 15%, transparent 80%);
+    "></div>
+
+    <!-- Large Saturn glyph, left side -->
+    <div class="absolute left-[-5vw] bottom-10 opacity-10 pointer-events-none" style="width: clamp(200px, 30vw, 420px);">
+      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <circle cx="200" cy="200" r="90" fill="oklch(0.12 0.025 272)" stroke="oklch(0.72 0.10 82)" stroke-width="1.5"/>
+        <ellipse cx="200" cy="200" rx="180" ry="52" stroke="oklch(0.72 0.10 82)" stroke-width="14" fill="none"/>
+        <ellipse cx="200" cy="200" rx="148" ry="40" stroke="oklch(0.86 0.07 82)" stroke-width="5" fill="none"/>
+      </svg>
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 lg:px-16 text-center">
+      <p class="text-brand-500 font-body font-400 tracking-[0.20em] uppercase text-xs mb-7">✦ &nbsp;Únete al cosmos</p>
+      <h2 class="font-display leading-tight mb-7" style="font-size: clamp(2.4rem, 5vw, 4.2rem); color: oklch(0.95 0.006 80);">
+        Tu universo de belleza<br/>
+        <em class="not-italic text-gold-shimmer">empieza aquí.</em>
+      </h2>
+      <p class="font-body font-300 text-lg md:text-xl leading-relaxed mb-12 max-w-lg mx-auto" style="color: oklch(0.65 0.012 80);">
+        Sé la primera en recibir nuevos lanzamientos, fórmulas exclusivas y descuentos orbitales para fundadoras.
+      </p>
+
+      <!-- Email capture -->
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-6">
+        <input
+          type="email"
+          placeholder="tu@email.com"
+          class="flex-1 px-5 py-3.5 font-body font-300 text-base rounded-sm outline-none transition-all"
+          style="
+            background: oklch(0.12 0.025 272 / 0.70);
+            border: 1px solid oklch(0.72 0.10 82 / 0.25);
+            color: oklch(0.88 0.006 80);
+            backdrop-filter: blur(8px);
+          "
+        />
+        <button type="submit" class="btn-gold whitespace-nowrap">Entrar al cosmos</button>
+      </form>
+      <p class="font-body font-300 text-xs" style="color: oklch(0.50 0.010 80); letter-spacing: 0.05em;">
+        Sin spam. Solo lanzamientos, historias y descuentos estelares.
+      </p>
+
+      <!-- Social proof row -->
+      <div class="mt-14 flex flex-wrap justify-center gap-8 items-center">
+        <div class="text-center">
+          <p class="font-display text-3xl md:text-4xl" style="color: oklch(0.78 0.09 82);">12K+</p>
+          <p class="font-body font-300 text-xs mt-1 tracking-widest uppercase" style="color: oklch(0.52 0.010 80);">Fundadoras</p>
+        </div>
+        <div style="width:1px; height:40px; background: oklch(0.72 0.10 82 / 0.20);"></div>
+        <div class="text-center">
+          <p class="font-display text-3xl md:text-4xl" style="color: oklch(0.78 0.09 82);">5 países</p>
+          <p class="font-body font-300 text-xs mt-1 tracking-widest uppercase" style="color: oklch(0.52 0.010 80);">De lanzamiento</p>
+        </div>
+        <div style="width:1px; height:40px; background: oklch(0.72 0.10 82 / 0.20);"></div>
+        <div class="text-center">
+          <p class="font-display text-3xl md:text-4xl" style="color: oklch(0.78 0.09 82);">100%</p>
+          <p class="font-body font-300 text-xs mt-1 tracking-widest uppercase" style="color: oklch(0.52 0.010 80);">Cruelty-free</p>
+        </div>
       </div>
     </div>
   </section>
+
 </Base>

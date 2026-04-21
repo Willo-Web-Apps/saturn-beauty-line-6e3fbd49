@@ -8,28 +8,37 @@ interface Props {
   description?: string;
 }
 
-const { title = "Your New Business", description = "Deseo sacar Una linea de maquillaje con el logo de Saturno" } = Astro.props;
+const {
+  title = "Satúrnia — Maquillaje Cósmico Premium",
+  description = "La primera línea de maquillaje inspirada en los anillos de Saturno. Cruelty-free, pigmentos de alta moda para mujeres que brillan diferente."
+} = Astro.props;
 ---
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0A0A14" />
     <title>{title}</title>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Your New Business",
-      "description": "Deseo sacar Una linea de maquillaje con el logo de Saturno",
-      "url": "https://saturn-beauty-line.onrender.com"
+      "name": "Satúrnia",
+      "description": "La primera línea de maquillaje premium inspirada en los anillos de Saturno. Cruelty-free, para mujeres hispanohablantes que brillan diferente.",
+      "url": "https://saturnia-beauty.onrender.com",
+      "brand": {
+        "@type": "Brand",
+        "name": "Satúrnia"
+      }
     }
     </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-surface-50 text-surface-900 font-body antialiased">
+  <body class="min-h-screen flex flex-col font-body antialiased" style="background-color: oklch(0.08 0.015 265); color: oklch(0.88 0.006 80);">
     <Header />
     <main class="flex-1">
       <slot />

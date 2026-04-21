@@ -1,57 +1,198 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
 /* -----------------------------------------------------------------------
-   Design Tokens — customize these to change the entire site's look.
-   The Product Agent should edit this @theme block to match the business:
-   - Swap fonts (Google Fonts @import above, font families below)
-   - Change brand colors to match the business personality
-   - Flip surface colors for dark theme (swap light/dark values)
+   Satúrnia — Design Tokens
+   Dark cosmic luxury makeup brand
+   Base: deep space black | Accent: warm gold metallic
    ----------------------------------------------------------------------- */
 
 @theme {
-  /* Typography — replace with distinctive Google Fonts for the business */
-  --font-display: ui-sans-serif, system-ui, sans-serif;
-  --font-body: ui-sans-serif, system-ui, sans-serif;
+  /* Typography — DM Serif Display (editorial astronomy) + DM Sans (clean modern) */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', ui-sans-serif, sans-serif;
 
-  /* Brand color scale — agent should customize per business */
-  --color-brand-50: oklch(0.97 0.01 250);
-  --color-brand-100: oklch(0.93 0.02 250);
-  --color-brand-200: oklch(0.87 0.04 250);
-  --color-brand-400: oklch(0.70 0.12 250);
-  --color-brand-500: oklch(0.60 0.16 250);
-  --color-brand-600: oklch(0.50 0.16 250);
+  /* Brand gold scale — warm metallic gold, not generic yellow */
+  --color-brand-50:  oklch(0.97 0.02 82);
+  --color-brand-100: oklch(0.93 0.04 82);
+  --color-brand-200: oklch(0.86 0.07 82);
+  --color-brand-400: oklch(0.78 0.09 82);
+  --color-brand-500: oklch(0.72 0.10 82);   /* #C9A84C – primary gold */
+  --color-brand-600: oklch(0.60 0.10 82);   /* darker gold */
 
-  /* Surface colors — light theme defaults. Flip for dark theme:
-     surface-50 becomes near-black, surface-900 becomes near-white */
-  --color-surface-50: oklch(0.985 0.002 250);
-  --color-surface-100: oklch(0.96 0.004 250);
-  --color-surface-200: oklch(0.92 0.006 250);
-  --color-surface-800: oklch(0.30 0.015 250);
-  --color-surface-900: oklch(0.20 0.015 250);
-  --color-surface-950: oklch(0.14 0.012 250);
+  /* Surface colors — dark theme: space black to midnight blue to deep navy */
+  /* FLIPPED for dark theme: surface-50 = near-black, surface-950 = near-white */
+  --color-surface-50:  oklch(0.08 0.015 265);   /* #0A0A14 — space black */
+  --color-surface-100: oklch(0.10 0.020 270);   /* deep space */
+  --color-surface-200: oklch(0.13 0.025 272);   /* #12122A midnight blue */
+  --color-surface-800: oklch(0.72 0.010 80);    /* warm muted cream */
+  --color-surface-900: oklch(0.88 0.006 80);    /* near-white warm */
+  --color-surface-950: oklch(0.96 0.004 80);    /* cream white */
 }
 
-/* Page-load animations — CSS only, no JS required */
+/* =====================================================================
+   Base styles
+   ===================================================================== */
+html {
+  background-color: oklch(0.08 0.015 265);
+  color: oklch(0.88 0.006 80);
+}
+
+/* =====================================================================
+   Gold shimmer text utility
+   ===================================================================== */
+.text-gold-shimmer {
+  background: linear-gradient(
+    135deg,
+    oklch(0.90 0.08 82) 0%,
+    oklch(0.72 0.10 82) 35%,
+    oklch(0.96 0.05 90) 50%,
+    oklch(0.72 0.10 82) 65%,
+    oklch(0.60 0.10 82) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =====================================================================
+   Star field pattern
+   ===================================================================== */
+.star-field {
+  position: relative;
+}
+.star-field::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, oklch(0.90 0.04 82 / 0.18) 1px, transparent 0),
+    radial-gradient(circle at 1px 1px, oklch(0.96 0.02 80 / 0.08) 1px, transparent 0);
+  background-size: 48px 48px, 22px 22px;
+  background-position: 0 0, 11px 11px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =====================================================================
+   Noise / grain texture overlay
+   ===================================================================== */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* =====================================================================
+   Saturn ring divider
+   ===================================================================== */
+.ring-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.72 0.10 82 / 0.15) 20%,
+    oklch(0.72 0.10 82 / 0.60) 50%,
+    oklch(0.72 0.10 82 / 0.15) 80%,
+    transparent 100%
+  );
+  position: relative;
+}
+.ring-divider::before {
+  content: '◎';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: oklch(0.72 0.10 82);
+  font-size: 0.9rem;
+  background: oklch(0.08 0.015 265);
+  padding: 0 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* =====================================================================
+   Card glass — frosted dark
+   ===================================================================== */
+.card-cosmic {
+  background: oklch(0.12 0.025 272 / 0.70);
+  border: 1px solid oklch(0.72 0.10 82 / 0.18);
+  backdrop-filter: blur(16px) saturate(1.1);
+}
+
+/* =====================================================================
+   Page-load animations
+   ===================================================================== */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out both;
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
 }
 
-.animate-slide-up {
-  animation: slideUp 0.6s ease-out both;
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(6px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(6px) rotate(-360deg); }
 }
 
-/* Staggered animation delays for cascading reveals */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
+.animate-fade-in  { animation: fadeIn  0.8s ease-out both; }
+.animate-slide-up { animation: slideUp 0.7s ease-out both; }
+
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.55s; }
+.delay-600 { animation-delay: 0.70s; }
+
+/* Button glow on hover */
+.btn-gold {
+  background: linear-gradient(135deg, oklch(0.72 0.10 82), oklch(0.60 0.10 82));
+  color: oklch(0.08 0.015 265);
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold:hover {
+  box-shadow: 0 0 28px oklch(0.72 0.10 82 / 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  border: 1px solid oklch(0.72 0.10 82 / 0.55);
+  color: oklch(0.72 0.10 82);
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+.btn-outline-gold:hover {
+  background: oklch(0.72 0.10 82 / 0.08);
+  border-color: oklch(0.72 0.10 82 / 0.90);
+}
